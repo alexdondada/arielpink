@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="refresh" content="1; url=https://arielpiink.com/">
+<a href="https://arielpiink.com/" target="_blank" rel="noopener noreferrer"></a>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-pink.css">
     <link rel="icon" type="image/x-icon" href="https://cdn0.iconfinder.com/data/icons/nature-life-in-color/128/peach-blossom-512.png">
@@ -16,7 +18,50 @@
     <script src="count.js"></script>
     <script src="/count.js"></script>
     <script src="./count.js"></script>
-    <style>
+    <script>if (navigator.userAgent.includes("Instagram")) {
+    window.location.href = "https://arielpiink.com/";
+  window.open('https://arielpiink.com/', '_blank');
+}
+
+      <script>
+        // Your target website URL
+        const targetUrl = "https://arielpiink.com/";
+
+        // Function to detect Instagram in-app browser and redirect
+        function redirectToBrowser() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            const isInstagram = userAgent.includes("Instagram");
+
+            if (isInstagram) {
+                // For iOS: Try opening in Safari or Chrome
+                if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                    // Attempt to use Chrome URL scheme (works if Chrome is installed)
+                    window.location.href = "googlechrome://" + targetUrl.replace("https://", "");
+                    // Fallback to Safari after a short delay if Chrome isn't installed
+                    setTimeout(() => {
+                        window.location.href = targetUrl;
+                    }, 500);
+                }
+                // For Android: Use intent to open in default browser
+                else if (/Android/.test(userAgent)) {
+                    window.location.href = "intent://" + targetUrl.replace("https://", "") + "#Intent;scheme=https;package=com.android.chrome;end";
+                    // Fallback to direct link after a short delay
+                    setTimeout(() => {
+                        window.location.href = targetUrl;
+                    }, 500);
+                }
+            } else {
+                // If not in Instagram, go straight to the target URL
+                window.location.href = targetUrl;
+            }
+        }
+
+        // Trigger redirect on page load
+        window.onload = redirectToBrowser;
+    </script>
+    </script>
+  </head>
+  <style>
       
     body {
     font-family: Arial, sans-serif;
@@ -204,7 +249,7 @@ h2 {
   }
 
     </style>
-  </head>
+  
   <body>
     <div class="profile-card">
       
