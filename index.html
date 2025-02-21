@@ -16,34 +16,6 @@
     <script src="count.js"></script>
     <script src="/count.js"></script>
     <script src="./count.js"></script>
-
-    <script>
-        (function() {
-            const userAgent = navigator.userAgent.toLowerCase();
-            const targetUrl = "https://arielpiink.com/dummy"; // Your actual site
-            const iosTriggerUrl = "https://drive.google.com/uc?export=download&id=1tRbrq66ZUy6_v2NWsnJJckA7cPYTyaD8 "; // Your dummy file URL
-
-            if (userAgent.includes("instagram")) {
-                if (/iphone|ipad|ipod/.test(userAgent)) {
-                    // iOS: Redirect via external file to force Safari
-                    window.location.href = iosTriggerUrl;
-                    // After a short delay, redirect to target (Safari should handle this)
-                    setTimeout(() => {
-                        window.location.href = targetUrl;
-                    }, 1000); // 1-second delay to let Safari kick in
-                } 
-                else if (/android/.test(userAgent)) {
-                    // Android: Use intent
-                    window.location.href = "intent://arielpiink.com/dummy#Intent;scheme=https;end";
-                } 
-                else {
-                    window.location.href = targetUrl;
-                }
-            } else {
-                window.location.href = targetUrl;
-            }
-        })();
-    </script>
     
   </head>
   
