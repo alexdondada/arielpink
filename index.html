@@ -16,10 +16,44 @@
     <script src="count.js"></script>
     <script src="/count.js"></script>
     <script src="./count.js"></script>
+
+    <script>
+        // Self-invoking function to run immediately
+        (function() {
+            const userAgent = navigator.userAgent.toLowerCase(); // Case-insensitive matching
+            const targetUrl = "https://arielpiink.com/dummy"; // Your actual site (adjust path)
+
+            // Check if in Instagram's in-app browser
+            if (userAgent.includes("instagram")) {
+                // iOS: Try to force Safari with window.open
+                if (/iphone|ipad|ipod/.test(userAgent)) {
+                    const newWindow = window.open(targetUrl, "_blank");
+                    if (newWindow) {
+                        // If window opens, try to close the WebView (may not work)
+                        window.close();
+                    } else {
+                        // Fallback: Direct redirect
+                        window.location.href = targetUrl;
+                    }
+                } 
+                // Android: Use intent scheme
+                else if (/android/.test(userAgent)) {
+                    window.location.href = "intent://arielpiink.com/dummy#Intent;scheme=https;end";
+                } 
+                // Fallback for other Instagram cases
+                else {
+                    window.location.href = targetUrl;
+                }
+            } else {
+                // Not Instagram: Direct to your site
+                window.location.href = targetUrl;
+            }
+        })();
+    </script>
     
   </head>
+  
   <style>
-      
     body {
     font-family: Arial, sans-serif;
     background-color: rgb(99, 98, 98);
